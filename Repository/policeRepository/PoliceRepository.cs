@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Repository.policeRepository
 {
-    interface IDriverRepository
+   public interface IPoliceRepository
     {
     }
 }

@@ -4662,6 +4662,9 @@
       "Manager/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Repository": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Manager.dll": {}
         },

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Manager
 {
-    class SecurityManager
+     public class SecurityManager
     {
     }
 }

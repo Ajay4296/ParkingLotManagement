@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Repository.OwnerRepository
 {
-    interface IOwnerRepository
+   public  interface IOwnerRepository
     {
     }
 }

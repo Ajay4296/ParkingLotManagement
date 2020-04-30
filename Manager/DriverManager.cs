@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository.DriverRepository;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,8 +7,7 @@ namespace Manager
 {
    public class DriverManager:IDriverManager
     {
-        public class DriverManager : IDriverManager
-        {
+    
             private readonly IDriverRepository driverRepository;
 
             public DriverManager(IDriverRepository driverRepository)

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Repository.OwnerRepository
 {
-    class OwnerRepository
+   public class OwnerRepository
     {
     }
 }

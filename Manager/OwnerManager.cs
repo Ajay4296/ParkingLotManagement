@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Manager
 {
-    class OwnerManager
+   public class OwnerManager
     {
     }
 }

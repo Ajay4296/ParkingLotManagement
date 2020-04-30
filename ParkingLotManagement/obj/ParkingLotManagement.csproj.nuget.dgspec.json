@@ -26,7 +26,11 @@
         },
         "frameworks": {
           "netcoreapp2.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\ParkingManagement\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\ParkingManagement\\Repository\\Repository.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

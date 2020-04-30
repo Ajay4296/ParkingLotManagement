@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "Repository/1.0.0": {
+      "Model/1.0.0": {
         "runtime": {
-          "Repository.dll": {}
+          "Model.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Repository/1.0.0": {
+    "Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

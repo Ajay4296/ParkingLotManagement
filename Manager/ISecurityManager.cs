@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Manager
 {
-    interface ISecurityManager
+   public  interface ISecurityManager
     {
     }
 }

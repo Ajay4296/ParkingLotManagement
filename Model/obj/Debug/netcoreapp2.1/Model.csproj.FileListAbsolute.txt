@@ -1,0 +1,11 @@
+C:\ParkingManagement\Model\bin\Debug\netcoreapp2.1\Model.deps.json
+C:\ParkingManagement\Model\bin\Debug\netcoreapp2.1\Model.runtimeconfig.json
+C:\ParkingManagement\Model\bin\Debug\netcoreapp2.1\Model.runtimeconfig.dev.json
+C:\ParkingManagement\Model\bin\Debug\netcoreapp2.1\Model.dll
+C:\ParkingManagement\Model\bin\Debug\netcoreapp2.1\Model.pdb
+C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.csproj.CoreCompileInputs.cache
+C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.AssemblyInfoInputs.cache
+C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.AssemblyInfo.cs
+C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.dll
+C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.pdb
+C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.genruntimeconfig.cache
