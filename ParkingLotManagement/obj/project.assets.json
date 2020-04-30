@@ -12755,6 +12755,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.10",
+      "Model >= 1.0.0",
       "Repository >= 1.0.0",
       "Swashbuckle.AspNetCore.Swagger >= 4.0.1",
       "Swashbuckle.AspNetCore.SwaggerGen >= 4.0.1",
@@ -12789,6 +12790,9 @@
           "projectReferences": {
             "C:\\ParkingManagement\\Manager\\Manager.csproj": {
               "projectPath": "C:\\ParkingManagement\\Manager\\Manager.csproj"
+            },
+            "C:\\ParkingManagement\\Model\\Model.csproj": {
+              "projectPath": "C:\\ParkingManagement\\Model\\Model.csproj"
             },
             "C:\\ParkingManagement\\Repository\\Repository.csproj": {
               "projectPath": "C:\\ParkingManagement\\Repository\\Repository.csproj"

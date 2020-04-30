@@ -32,8 +32,8 @@ namespace ParkingLotManagement
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<UserDbContext>(option => option.UseSqlServer(this.Configuration.GetConnectionString("UserDbConnection")));
-            services.AddTransient<IDriverManager, DriverManager>();
-            services.AddTransient<IDriverRepository, DriverRepository>();
+           // services.AddTransient<IDriverManager, DriverManager>();
+           // services.AddTransient<IDriverRepository, DriverRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "ParkingLot_Problem", Version = "v1" });

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Model
 {
     public class ParkingModel
     {
-            public int ParkingSlotNo { get; set; }
-
-        
+           [Key]
             public string VehicalNo { get; set; }
 
             

@@ -1,3 +1,17 @@
+C:\ParkingManagement\Manager\bin\Debug\netcoreapp2.1\Manager.deps.json
+C:\ParkingManagement\Manager\bin\Debug\netcoreapp2.1\Manager.runtimeconfig.json
+C:\ParkingManagement\Manager\bin\Debug\netcoreapp2.1\Manager.runtimeconfig.dev.json
+C:\ParkingManagement\Manager\bin\Debug\netcoreapp2.1\Manager.dll
+C:\ParkingManagement\Manager\bin\Debug\netcoreapp2.1\Manager.pdb
+C:\ParkingManagement\Manager\bin\Debug\netcoreapp2.1\Model.dll
+C:\ParkingManagement\Manager\bin\Debug\netcoreapp2.1\Repository.dll
+C:\ParkingManagement\Manager\bin\Debug\netcoreapp2.1\Repository.pdb
+C:\ParkingManagement\Manager\bin\Debug\netcoreapp2.1\Model.pdb
+C:\ParkingManagement\Manager\obj\Debug\netcoreapp2.1\Manager.csprojAssemblyReference.cache
 C:\ParkingManagement\Manager\obj\Debug\netcoreapp2.1\Manager.csproj.CoreCompileInputs.cache
 C:\ParkingManagement\Manager\obj\Debug\netcoreapp2.1\Manager.AssemblyInfoInputs.cache
 C:\ParkingManagement\Manager\obj\Debug\netcoreapp2.1\Manager.AssemblyInfo.cs
+C:\ParkingManagement\Manager\obj\Debug\netcoreapp2.1\Manager.csproj.CopyComplete
+C:\ParkingManagement\Manager\obj\Debug\netcoreapp2.1\Manager.dll
+C:\ParkingManagement\Manager\obj\Debug\netcoreapp2.1\Manager.pdb
+C:\ParkingManagement\Manager\obj\Debug\netcoreapp2.1\Manager.genruntimeconfig.cache
