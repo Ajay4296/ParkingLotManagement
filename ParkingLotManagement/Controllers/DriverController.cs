@@ -20,6 +20,22 @@ namespace ParkingLotManagement.Controllers
             this.driverManager = driverManager;
         }
 
-       
+        [Route("ParkVahical")]
+        [HttpPost]
+        public async Task<IActionResult> Parking_Vahical(ParkingModel parking)
+        {
+            var result = await this.driverManager.Parkking(parking);
+            if (result == 1)
+                return this.Ok(parking);
+
+            return this.BadRequest();
+        }
+
+        [Route("UnParkVahical")]
+        [HttpDelete]
+        public string UnParking_Vahical(int ParkingSlotId)
+        {
+            return this.driverManager.UnParking(ParkingSlotId);
+        }
     }
 }

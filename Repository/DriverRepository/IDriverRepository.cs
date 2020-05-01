@@ -8,6 +8,7 @@ namespace Repository.DriverRepository
 {
    public interface IDriverRepository
     {
-        
+        Task<int> Parkking(ParkingModel parking);
+        string UnParking(int ParkingSlotId);
     }
 }
