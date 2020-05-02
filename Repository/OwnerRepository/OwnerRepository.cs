@@ -3,6 +3,7 @@ using Repository.UserDBContext;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Repository.OwnerRepository
 {
@@ -17,6 +18,21 @@ namespace Repository.OwnerRepository
         {
             return userContext.ParkingSpace.Find(slotNumber);
         }
-        public ParkingModel AddParking()
+        public Task<int> AddParking(ParkingModel vehicle)
+        {
+            userContext.ParkingSpace.Add(vehicle);
+            var result = userContext.SaveChangesAsync();
+            return result;
+        }
+        public ParkingModel UnPark(int slotNumber)
+        {
+            ParkingModel parking = userContext.ParkingSpace.Find(slotNumber);
+            if (parking != null)
+            {
+                userContext.ParkingSpace.Remove(parking);
+                userContext.SaveChanges();
+            }
+            return parking;
+        }
     }
 }

@@ -53,9 +53,9 @@ namespace ParkingLotManagement.Controllers
         }
         [Route("Get_Employee")]
         [HttpGet]
-        public async Task<IActionResult> GetCharge()
+        public async Task<IActionResult> GetParkingCharge(int slotNumber)
         {
-            var result = driverManager.ParkingCharge();
+            var result = driverManager.ParkingCharge(slotNumber);
             if (result != 0.0)
                 return Ok(result);
 

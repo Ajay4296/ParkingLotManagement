@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Repository.DriverRepository
 {
-   public class DriverRepository:IDriverRepository
+   public class DriverRepository : IDriverRepository
     {
         private readonly UserDbContext userContext;
-        int capacity = 10;
-        int vehicleCount;
+        int lotCapacity = 10;
+        int vehicleCount=0;
 
         public DriverRepository(UserDbContext userContext)
         {
@@ -20,7 +20,7 @@ namespace Repository.DriverRepository
         }
         public int CheckLotAvailability()
         {
-            if(capacity>=vehicleCount)
+            if(lotCapacity>=vehicleCount)
                 return 1;
             return 0;
         }
@@ -28,6 +28,10 @@ namespace Repository.DriverRepository
         public IEnumerable<ParkingModel> GetAllVehicle()
         {
             return userContext.ParkingSpace;
+        }
+        public ParkingModel GetVehicle(int slotNumber)
+        {
+            return userContext.ParkingSpace.Find(slotNumber);
         }
 
         public Task<int> AddParking(ParkingModel vehicle)
@@ -47,49 +51,45 @@ namespace Repository.DriverRepository
             return null;
         }
 
-        public ParkingModel GetVehicle(int slotNumber)
-        {
-            return userContext.ParkingSpace.Find(slotNumber);
-        }
+       
         public double ParkingCharge(int slotNumber)
         {
             ParkingModel parking = userContext.ParkingSpace.Find(slotNumber);
-                DateTime entryTime = parking.EntryTime;
-                DateTime exit = DateTime.Now;
-            double totalTime = (entryTime - exit).TotalMinutes;
-            if(parking.ParkingType.Equals("vallet",StringComparison.InvariantCultureIgnoreCase) &&
-                parking.DriverCategory.Equals("PH",StringComparison.InvariantCultureIgnoreCase))
+            DateTime entryTime = parking.EntryTime;
+            DateTime exitTime = DateTime.Now;
+            double totalTime = (entryTime - exitTime).TotalHours;
+            if (parking.ParkingType.Equals("valet Parking", StringComparison.InvariantCultureIgnoreCase) &&
+                parking.DriverCategory.Equals("PH", StringComparison.InvariantCultureIgnoreCase))
             {
                 return totalTime * 0;
             }
-            if (parking.ParkingType.Equals("own", StringComparison.InvariantCultureIgnoreCase) &&
-               parking.DriverCategory.Equals("Normal", StringComparison.InvariantCultureIgnoreCase))
+            else if (parking.ParkingType.Equals("own", StringComparison.InvariantCultureIgnoreCase) &&
+                parking.DriverCategory.Equals("Normal", StringComparison.InvariantCultureIgnoreCase))
             {
                 if (totalTime <= 1)
                     return 10;
             }
-            if (parking.VehicalType.Equals("TwoWheelers", StringComparison.InvariantCultureIgnoreCase)
-                {
+            if (parking.VehicalType.Equals("TwoWheelers", StringComparison.InvariantCultureIgnoreCase))
+            {
                 return totalTime * parking.ChargesPerHour;
-                }
-           else if(parking.VehicalType.Equals("FourWheelers", StringComparison.InvariantCultureIgnoreCase)
-                {
+            }
+            else if (parking.VehicalType.Equals("FourWheelers", StringComparison.InvariantCultureIgnoreCase))
+            {
                 return totalTime * parking.ChargesPerHour;
 
             }
             return 0.0;
-        public Task<int> Parkking(ParkingModel parking)
-        {
-            this.userContext.ParkingSpace.Add(parking); 
-            var result = this.userContext.SaveChangesAsync();
-            return result;
         }
-
-        public string UnParking(int ParkingSlotId)
+        public ParkingModel UnParking(int slotNumber)
         {
-            ParkingModel parking = this.userContext.ParkingSpace.Find(ParkingSlotId);
-            this.userContext.ParkingSpace.Remove(parking);
-            return Utility.Receipt(parking.ChargesPerHour, parking.EntryTime);
+            ParkingModel parking = userContext.ParkingSpace.Find(slotNumber);
+            int index = slotNumber;
+            if(parking!=null)
+            {
+                userContext.ParkingSpace.Remove(parking);
+                userContext.SaveChanges();
+            }
+            return parking;
         }
     }
 }

@@ -10,6 +10,6 @@ namespace Repository.OwnerRepository
     {
         Task<int> AddParking(ParkingModel vehicle);
         ParkingModel GetVehicle(int slotNumber);
-        ParkingModel RemoveVehicle(int slotNumber);
+        ParkingModel UnPark(int slotNumber);
     }
 }

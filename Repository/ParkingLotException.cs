@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Repository
 {
-    class ParkingLotException
+    class ParkingLotException:Exception
     {
+        public ParkingLotException(string msg) : base(msg)
+        {
+
+        }
     }
 }
