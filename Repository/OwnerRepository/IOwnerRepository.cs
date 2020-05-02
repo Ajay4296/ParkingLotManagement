@@ -8,8 +8,8 @@ namespace Repository.OwnerRepository
 {
    public  interface IOwnerRepository
     {
-        Task<int> AddParking();
-        ParkingModel GetVehicle();
-        ParkingModel RemoveVehicle();
+        Task<int> AddParking(ParkingModel vehicle);
+        ParkingModel GetVehicle(int slotNumber);
+        ParkingModel RemoveVehicle(int slotNumber);
     }
 }
