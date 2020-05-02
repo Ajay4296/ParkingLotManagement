@@ -24,7 +24,7 @@ namespace ParkingLotManagement.Controllers
         [HttpPost]
         public async Task<IActionResult> Parking_Vahical(ParkingModel parking)
         {
-            var result = await this.driverManager.Parkking(parking);
+            var result = await this.driverManager.AddParking(parking);
             if (result == 1)
                 return this.Ok(parking);
 
@@ -33,9 +33,33 @@ namespace ParkingLotManagement.Controllers
 
         [Route("UnParkVahical")]
         [HttpDelete]
-        public string UnParking_Vahical(int ParkingSlotId)
+        public ParkingModel UnParkVahicle(int ParkingSlotId)
         {
             return this.driverManager.UnParking(ParkingSlotId);
+        }
+
+        [Route("GetAllVehicle")]
+        [HttpGet]
+        public IEnumerable<ParkingModel> GetAll()
+        {
+            return this.driverManager.GetALLVehicle();
+        }
+        [Route("GetVehicle")]
+        [HttpGet]
+        public ParkingModel Get_Vehicle(int slotNumber)
+        {
+            return this.driverManager.Get_Vehicle(slotNumber);
+            
+        }
+        [Route("Get_Employee")]
+        [HttpGet]
+        public async Task<IActionResult> GetCharge()
+        {
+            var result = driverManager.ParkingCharge();
+            if (result != 0.0)
+                return Ok(result);
+
+            return this.BadRequest();
         }
     }
 }
