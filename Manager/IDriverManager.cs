@@ -8,7 +8,12 @@ namespace Manager
 {
    public interface IDriverManager
     {
-        Task<int> Parkking(ParkingModel parking);
-        string UnParking(int parkingSlotId);
+        Task<int> AddParking(ParkingModel parking);
+        ParkingModel  UnParking(int parkingSlotId);
+
+        ParkingModel Get_Vehicle(int slotNumber);
+
+        IEnumerable<ParkingModel> GetALLVehicle();
+        double ParkingCharge();
     }
 }
