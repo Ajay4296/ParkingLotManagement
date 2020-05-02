@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Repository.policeRepository
 {
-   public interface IPoliceRepository
+   public interface PoliceRepository
     {
     }
 }
