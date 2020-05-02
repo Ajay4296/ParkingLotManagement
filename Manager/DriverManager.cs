@@ -19,12 +19,25 @@ namespace Manager
 
             public Task<int> Parkking(ParkingModel parking)
             {
-                return this.driverRepository.Parkking(parking);
+                return this.driverRepository.AddParking(parking);
             }
 
-            public string UnParking(int parkingSlotId)
+            public ParkingModel UnParking(int parkingSlotId)
             {
                 return this.driverRepository.UnParking(parkingSlotId);
             }
+            public  ParkingModel Get_Vehicle(int slotNumber)
+            {
+                 return this.driverRepository.GetVehicle(slotNumber);
+             }
+           public IEnumerable<ParkingModel> GetALLVehicle()
+        {
+            return this.driverRepository.GetAllVehicle();
         }
+          public double ParkingCharge()
+        {
+            return
+        }
+
+    }
 }
