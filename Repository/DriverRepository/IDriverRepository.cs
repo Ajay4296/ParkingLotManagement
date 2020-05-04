@@ -12,7 +12,7 @@ namespace Repository.DriverRepository
         IEnumerable<ParkingModel> GetAllVehicle();
         ParkingModel GetVehicle(int slotNumber);
         Task<int> AddParking(ParkingModel vehicle);
-        double ParkingCharge(int slotNumber);
-        ParkingModel UnParking(int slotNumber);
+        string ParkingCharge(int slotNumber);
+        string UnParking(int slotNumber);
     }
 }

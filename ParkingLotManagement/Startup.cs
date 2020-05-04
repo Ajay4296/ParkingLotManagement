@@ -15,6 +15,7 @@ using Manager;
 using Repository.UserDBContext;
 using Repository.DriverRepository;
 using Swashbuckle.AspNetCore.Swagger;
+using Repository.OwnerRepository;
 
 namespace ParkingLotManagement
 {
@@ -32,8 +33,10 @@ namespace ParkingLotManagement
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<UserDbContext>(option => option.UseSqlServer(this.Configuration.GetConnectionString("UserDbConnection")));
-           // services.AddTransient<IDriverManager, DriverManager>();
-           // services.AddTransient<IDriverRepository, DriverRepository>();
+            services.AddTransient<IDriverManager, DriverManager>();
+            services.AddTransient<IDriverRepository, DriverRepository>();
+            services.AddTransient<IOwnerManager, OwnerManager>();
+            services.AddTransient<IOwnerRepository, OwnerRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "ParkingLot_Problem", Version = "v1" });
@@ -56,7 +59,7 @@ namespace ParkingLotManagement
             {
                 app.UseHsts();
             }
-
+           
             app.UseHttpsRedirection();
             app.UseMvc();
         }

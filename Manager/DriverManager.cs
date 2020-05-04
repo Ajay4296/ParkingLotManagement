@@ -22,7 +22,7 @@ namespace Manager
                 return this.driverRepository.AddParking(parking);
             }
 
-            public ParkingModel UnParking(int parkingSlotId)
+            public string UnParking(int parkingSlotId)
             {
                 return this.driverRepository.UnParking(parkingSlotId);
             }
@@ -34,7 +34,7 @@ namespace Manager
         {
             return this.driverRepository.GetAllVehicle();
         }
-          public double ParkingCharge(int slotNumber)
+          public string ParkingCharge(int slotNumber)
         {
             return driverRepository.ParkingCharge(slotNumber);
         } 

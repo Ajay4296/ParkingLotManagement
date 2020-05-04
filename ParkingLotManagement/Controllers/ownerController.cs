@@ -13,24 +13,24 @@ namespace ParkingLotManagement.Controllers
     [ApiController]
     public class ownerController : ControllerBase
     {
-        private readonly IOwnerManager driverManager;
+        private readonly IOwnerManager ownerManager;
 
-        public ownerController(IOwnerManager driverManager)
+        public ownerController(IOwnerManager ownerManager)
         {
-            this.driverManager = driverManager;
+            this.ownerManager = ownerManager;
         }
         [Route("GetVehicle")]
         [HttpGet]
         public ParkingModel Get_Vehicle(int slotNumber)
         {
-            return this.driverManager.GetVehicle(slotNumber);
+            return this.ownerManager.GetVehicle(slotNumber);
 
         }
         [Route("ParkVahical")]
         [HttpPost]
         public async Task<IActionResult> Parking_Vahical(ParkingModel parking)
         {
-            var result = await this.driverManager.AddParking(parking);
+            var result = await this.ownerManager.AddParking(parking);
             if (result == 1)
                 return this.Ok(parking);
 
@@ -40,7 +40,7 @@ namespace ParkingLotManagement.Controllers
         [HttpDelete]
         public ParkingModel UnParkVahicle(int ParkingSlotId)
         {
-            return this.driverManager.UnParking(ParkingSlotId);
+            return this.ownerManager.UnParking(ParkingSlotId);
         }
 
     }

@@ -33,7 +33,7 @@ namespace ParkingLotManagement.Controllers
 
         [Route("UnParkVahical")]
         [HttpDelete]
-        public ParkingModel UnParkVahicle(int ParkingSlotId)
+        public string UnParkVahicle(int ParkingSlotId)
         {
             return this.driverManager.UnParking(ParkingSlotId);
         }
@@ -51,7 +51,7 @@ namespace ParkingLotManagement.Controllers
             return this.driverManager.Get_Vehicle(slotNumber);
             
         }
-        [Route("Get_Employee")]
+        [Route("GetParkingCharge ")]
         [HttpGet]
         public async Task<IActionResult> GetParkingCharge(int slotNumber)
         {

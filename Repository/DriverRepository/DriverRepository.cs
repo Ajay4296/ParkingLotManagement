@@ -37,59 +37,69 @@ namespace Repository.DriverRepository
         public Task<int> AddParking(ParkingModel vehicle)
         {
             int slot = CheckLotAvailability();
-            if (slot == 1)
             {
-                userContext.ParkingSpace.Add(vehicle);
-                var result = userContext.SaveChangesAsync();
-                vehicleCount++;
-                return result;
+                if (slot == 1)
+                {
+                    userContext.ParkingSpace.Add(vehicle);
+                    var result = userContext.SaveChangesAsync();
+                    vehicleCount++;
+                    return result;
+                }
+                else if (slot == 0)
+                {
+                    throw new ParkingLotException("Lot not available");
+                }
             }
-            else if (slot == 0)
-            {
-                throw new ParkingLotException("Lot not available");
-            }
+            
             return null;
         }
 
        
-        public double ParkingCharge(int slotNumber)
+        public string ParkingCharge(int slotNumber)
         {
             ParkingModel parking = userContext.ParkingSpace.Find(slotNumber);
             DateTime entryTime = parking.EntryTime;
             DateTime exitTime = DateTime.Now;
             double totalTime = (entryTime - exitTime).TotalHours;
             if (parking.ParkingType.Equals("valet Parking", StringComparison.InvariantCultureIgnoreCase) &&
-                parking.DriverCategory.Equals("PH", StringComparison.InvariantCultureIgnoreCase))
+                parking.DriverCategory.Equals("POS", StringComparison.InvariantCultureIgnoreCase))
             {
-                return totalTime * 0;
+                return ("Parking Entry Time = " + entryTime + "@\n" + "Parking Exit Time = " + exitTime + "@\n" + "Parking Charges = " + totalTime*0);
+               
             }
             else if (parking.ParkingType.Equals("own", StringComparison.InvariantCultureIgnoreCase) &&
                 parking.DriverCategory.Equals("Normal", StringComparison.InvariantCultureIgnoreCase))
             {
-                if (totalTime <= 1)
-                    return 10;
+                return ("Parking Entry Time = " + entryTime  + "Parking Exit Time = " + exitTime  + "Parking Charges = " + totalTime *parking.ChargesPerHour);
             }
             if (parking.VehicalType.Equals("TwoWheelers", StringComparison.InvariantCultureIgnoreCase))
             {
-                return totalTime * parking.ChargesPerHour;
+                return ("Parking Entry Time = " + entryTime  + "Parking Exit Time = " + exitTime  + "Parking Charges = " + totalTime * parking.ChargesPerHour);
             }
             else if (parking.VehicalType.Equals("FourWheelers", StringComparison.InvariantCultureIgnoreCase))
             {
-                return totalTime * parking.ChargesPerHour;
+                return ("Parking Entry Time = " + entryTime  + "Parking Exit Time = " + exitTime  + "Parking Charges = " + totalTime*parking.ChargesPerHour);
 
-            }
-            return 0.0;
+            } 
+            return null  ;
         }
-        public ParkingModel UnParking(int slotNumber)
+        public string UnParking(int slotNumber)
         {
             ParkingModel parking = userContext.ParkingSpace.Find(slotNumber);
             int index = slotNumber;
-            if(parking!=null)
+            try
             {
+                if (parking == null)
+                    throw new ParkingLotException("This slot id is empty");
                 userContext.ParkingSpace.Remove(parking);
                 userContext.SaveChanges();
+                return ParkingCharge(slotNumber);
             }
-            return parking;
+            catch (ParkingLotException e)
+            {
+                return e.Message;
+            }
+            
         }
     }
 }
