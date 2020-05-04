@@ -19,11 +19,11 @@ namespace ParkingLotManagement.Controllers
         {
             this.ownerManager = ownerManager;
         }
-        [Route("GetVehicle")]
+        [Route("GetAllVehicle")]
         [HttpGet]
-        public ParkingModel Get_Vehicle(int slotNumber)
+        public IEnumerable<ParkingModel> GetAllVehicle()
         {
-            return this.ownerManager.GetVehicle(slotNumber);
+            return this.ownerManager.GetAllVehicle();
 
         }
         [Route("ParkVahical")]

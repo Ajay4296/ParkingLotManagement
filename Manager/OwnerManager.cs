@@ -15,9 +15,9 @@ namespace Manager
         {
             this.ownerRepository = ownerRepository;
         }
-        public ParkingModel GetVehicle(int slotNumber)
+        public IEnumerable<ParkingModel> GetAllVehicle()
         {
-            return this.ownerRepository.GetVehicle(slotNumber);
+            return this.ownerRepository.GetAllVehicle();
         }
        public Task<int> AddParking(ParkingModel parking)
         {

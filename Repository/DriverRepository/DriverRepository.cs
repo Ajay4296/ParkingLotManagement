@@ -27,7 +27,7 @@ namespace Repository.DriverRepository
 
         public IEnumerable<ParkingModel> GetAllVehicle()
         {
-            return userContext.ParkingSpace;
+            return userContext.ParkingSpace.ToList();
         }
         public ParkingModel GetVehicle(int slotNumber)
         {

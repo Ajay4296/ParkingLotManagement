@@ -8,7 +8,7 @@ namespace Manager
 {
    public interface IOwnerManager
     {
-        ParkingModel GetVehicle(int slotNumber);
+        IEnumerable<ParkingModel> GetAllVehicle();
         Task<int> AddParking(ParkingModel parking);
         ParkingModel UnParking(int parkingSlotId);
 

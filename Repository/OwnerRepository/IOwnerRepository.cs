@@ -9,7 +9,7 @@ namespace Repository.OwnerRepository
    public  interface IOwnerRepository
     {
         Task<int> AddParking(ParkingModel vehicle);
-        ParkingModel GetVehicle(int slotNumber);
+        IEnumerable<ParkingModel> GetAllVehicle();
         ParkingModel UnPark(int slotNumber);
     }
 }

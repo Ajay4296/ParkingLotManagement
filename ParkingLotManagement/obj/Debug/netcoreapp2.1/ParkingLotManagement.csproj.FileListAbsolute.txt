@@ -1,3 +1,4 @@
+C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\Manager.dll
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\appsettings.Development.json
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\appsettings.json
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
@@ -6,12 +7,11 @@ C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\ParkingLotMana
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\ParkingLotManagement.runtimeconfig.dev.json
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\ParkingLotManagement.dll
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\ParkingLotManagement.pdb
-C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\Manager.dll
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\Model.dll
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\Repository.dll
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\Manager.pdb
-C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\Repository.pdb
 C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\Model.pdb
+C:\ParkingManagement\ParkingLotManagement\bin\Debug\netcoreapp2.1\Repository.pdb
 C:\ParkingManagement\ParkingLotManagement\obj\Debug\netcoreapp2.1\ParkingLotManagement.csprojAssemblyReference.cache
 C:\ParkingManagement\ParkingLotManagement\obj\Debug\netcoreapp2.1\ParkingLotManagement.csproj.CoreCompileInputs.cache
 C:\ParkingManagement\ParkingLotManagement\obj\Debug\netcoreapp2.1\ParkingLotManagement.RazorAssemblyInfo.cache

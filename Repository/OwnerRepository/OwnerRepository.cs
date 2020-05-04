@@ -2,6 +2,7 @@
 using Repository.UserDBContext;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,9 +15,9 @@ namespace Repository.OwnerRepository
         {
             this.userContext = userContext;
         }
-        public ParkingModel GetVehicle(int slotNumber)
+        public IEnumerable<ParkingModel> GetAllVehicle()
         {
-            return userContext.ParkingSpace.Find(slotNumber);
+            return userContext.ParkingSpace.ToList();
         }
         public Task<int> AddParking(ParkingModel vehicle)
         {

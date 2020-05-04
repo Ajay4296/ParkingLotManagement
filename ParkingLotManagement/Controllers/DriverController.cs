@@ -56,7 +56,7 @@ namespace ParkingLotManagement.Controllers
         public async Task<IActionResult> GetParkingCharge(int slotNumber)
         {
             var result = driverManager.ParkingCharge(slotNumber);
-            if (result != 0.0)
+            if (result != null)
                 return Ok(result);
 
             return this.BadRequest();
