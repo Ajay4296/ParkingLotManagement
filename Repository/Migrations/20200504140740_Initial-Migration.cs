@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations
@@ -11,16 +12,18 @@ namespace Repository.Migrations
                 name: "ParkingSpace",
                 columns: table => new
                 {
+                    ParkingSlotNo = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     VehicalNo = table.Column<string>(nullable: false),
-                    VehicalType = table.Column<string>(nullable: true),
+                    VehicalType = table.Column<string>(nullable: false),
                     ChargesPerHour = table.Column<int>(nullable: false),
                     EntryTime = table.Column<DateTime>(nullable: false),
-                    DriverCategory = table.Column<string>(nullable: true),
-                    ParkingType = table.Column<string>(nullable: true)
+                    DriverCategory = table.Column<string>(nullable: false),
+                    ParkingType = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ParkingSpace", x => x.VehicalNo);
+                    table.PrimaryKey("PK_ParkingSpace", x => x.ParkingSlotNo);
                 });
         }
 

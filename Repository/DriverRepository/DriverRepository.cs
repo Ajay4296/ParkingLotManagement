@@ -11,23 +11,24 @@ namespace Repository.DriverRepository
    public class DriverRepository : IDriverRepository
     {
         private readonly UserDbContext userContext;
-        int lotCapacity = 10;
+       public static int lotCapacity = 10;
         int vehicleCount=0;
-
+       // public static List<ParkingModel> list = new List<ParkingModel>();
+            
         public DriverRepository(UserDbContext userContext)
         {
             this.userContext = userContext;
         }
         public int CheckLotAvailability()
         {
-            if(lotCapacity>=vehicleCount)
+            if(lotCapacity>vehicleCount)
                 return 1;
             return 0;
         }
 
         public IEnumerable<ParkingModel> GetAllVehicle()
         {
-            return userContext.ParkingSpace.ToList();
+            return userContext.ParkingSpace;
         }
         public ParkingModel GetVehicle(int slotNumber)
         {
@@ -36,22 +37,17 @@ namespace Repository.DriverRepository
 
         public Task<int> AddParking(ParkingModel vehicle)
         {
-            int slot = CheckLotAvailability();
-            {
-                if (slot == 1)
-                {
+            //int slot = CheckLotAvailability();
+            
+                
+                
                     userContext.ParkingSpace.Add(vehicle);
                     var result = userContext.SaveChangesAsync();
                     vehicleCount++;
-                    return result;
-                }
-                else if (slot == 0)
-                {
-                    throw new ParkingLotException("Lot not available");
-                }
-            }
+                     return result;
+             
             
-            return null;
+          
         }
 
        

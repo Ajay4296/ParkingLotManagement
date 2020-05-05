@@ -9,3 +9,4 @@ C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.AssemblyInfo.cs
 C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.dll
 C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.pdb
 C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.genruntimeconfig.cache
+C:\ParkingManagement\Model\obj\Debug\netcoreapp2.1\Model.csprojAssemblyReference.cache

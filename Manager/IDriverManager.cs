@@ -14,6 +14,6 @@ namespace Manager
         ParkingModel Get_Vehicle(int slotNumber);
 
         IEnumerable<ParkingModel> GetALLVehicle();
-        string ParkingCharge(int slotNuber);
+      //  string ParkingCharge(int slotNuber);
     }
 }

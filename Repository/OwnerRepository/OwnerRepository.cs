@@ -17,7 +17,7 @@ namespace Repository.OwnerRepository
         }
         public IEnumerable<ParkingModel> GetAllVehicle()
         {
-            return userContext.ParkingSpace.ToList();
+            return userContext.ParkingSpace;
         }
         public Task<int> AddParking(ParkingModel vehicle)
         {

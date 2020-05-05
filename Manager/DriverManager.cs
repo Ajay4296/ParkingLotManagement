@@ -17,7 +17,7 @@ namespace Manager
                 this.driverRepository = driverRepository;
             }
 
-            public Task<int>AddParking(ParkingModel parking)
+            public Task<int> AddParking(ParkingModel parking)
             {
                 return this.driverRepository.AddParking(parking);
             }
@@ -34,10 +34,10 @@ namespace Manager
         {
             return this.driverRepository.GetAllVehicle();
         }
-          public string ParkingCharge(int slotNumber)
+          /*public string ParkingCharge(int slotNumber)
         {
             return driverRepository.ParkingCharge(slotNumber);
-        } 
+        } */
 
     }
 }

@@ -51,7 +51,7 @@ namespace ParkingLotManagement.Controllers
             return this.driverManager.Get_Vehicle(slotNumber);
             
         }
-        [Route("GetParkingCharge ")]
+        /*[Route("GetParkingCharge ")]
         [HttpGet]
         public async Task<IActionResult> GetParkingCharge(int slotNumber)
         {
@@ -60,6 +60,6 @@ namespace ParkingLotManagement.Controllers
                 return Ok(result);
 
             return this.BadRequest();
-        }
+        }*/
     }
 }
