@@ -13,8 +13,10 @@ namespace Repository.DriverRepository
         private readonly UserDbContext userContext;
        public static int lotCapacity = 10;
         int vehicleCount=0;
-       // public static List<ParkingModel> list = new List<ParkingModel>();
-            
+        private ParkingModel parking;
+
+        // public static List<ParkingModel> list = new List<ParkingModel>();
+
         public DriverRepository(UserDbContext userContext)
         {
             this.userContext = userContext;
@@ -37,47 +39,40 @@ namespace Repository.DriverRepository
 
         public Task<int> AddParking(ParkingModel vehicle)
         {
-            //int slot = CheckLotAvailability();
-            
-                
-                
+            //int slot = CheckLotAvailability(); 
                     userContext.ParkingSpace.Add(vehicle);
                     var result = userContext.SaveChangesAsync();
                     vehicleCount++;
                      return result;
-             
-            
-          
-        }
+        } 
 
        
         public string ParkingCharge(int slotNumber)
         {
-            ParkingModel parking = userContext.ParkingSpace.Find(slotNumber);
-            DateTime entryTime = parking.EntryTime;
-            DateTime exitTime = DateTime.Now;
-            double totalTime = (entryTime - exitTime).TotalHours;
+           // ParkingModel parking = userContext.ParkingSpace.Find(slotNumber);
+           // DateTime entryTime = parking.EntryTime;
+          //  DateTime exitTime = DateTime.Now;
+            
             if (parking.ParkingType.Equals("valet Parking", StringComparison.InvariantCultureIgnoreCase) &&
                 parking.DriverCategory.Equals("POS", StringComparison.InvariantCultureIgnoreCase))
             {
-                return ("Parking Entry Time = " + entryTime + "@\n" + "Parking Exit Time = " + exitTime + "@\n" + "Parking Charges = " + totalTime*0);
+                 return ("Parking Entry Time = " + parking.EntryTime + "@\n" + "Parking Exit Time = " + DateTime.Now + "@\n" + "Parking Charges = " + (DateTime.Now-parking.EntryTime)*0);
                
             }
             else if (parking.ParkingType.Equals("own", StringComparison.InvariantCultureIgnoreCase) &&
                 parking.DriverCategory.Equals("Normal", StringComparison.InvariantCultureIgnoreCase))
             {
-                return ("Parking Entry Time = " + entryTime  + "Parking Exit Time = " + exitTime  + "Parking Charges = " + totalTime *parking.ChargesPerHour);
+                return ("Parking Entry Time = " + parking.EntryTime + "@\n" + "Parking Exit Time = " + DateTime.Now + "@\n" + "Parking Charges = " + (DateTime.Now - parking.EntryTime) * parking.ChargesPerHour);
             }
             if (parking.VehicalType.Equals("TwoWheelers", StringComparison.InvariantCultureIgnoreCase))
             {
-                return ("Parking Entry Time = " + entryTime  + "Parking Exit Time = " + exitTime  + "Parking Charges = " + totalTime * parking.ChargesPerHour);
+                return ("Parking Entry Time = " + parking.EntryTime + "@\n" + "Parking Exit Time = " + DateTime.Now + "@\n" + "Parking Charges = " + (DateTime.Now - parking.EntryTime) * parking.ChargesPerHour);
             }
             else if (parking.VehicalType.Equals("FourWheelers", StringComparison.InvariantCultureIgnoreCase))
             {
-                return ("Parking Entry Time = " + entryTime  + "Parking Exit Time = " + exitTime  + "Parking Charges = " + totalTime*parking.ChargesPerHour);
-
-            } 
-            return null  ;
+                return ("Parking Entry Time = " + parking.EntryTime + "@\n" + "Parking Exit Time = " + DateTime.Now + "@\n" + "Parking Charges = " + (DateTime.Now - parking.EntryTime) * parking.ChargesPerHour);
+            }
+            return null;
         }
         public string UnParking(int slotNumber)
         {
